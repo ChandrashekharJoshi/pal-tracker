@@ -17,15 +17,15 @@ import static com.jayway.jsonpath.JsonPath.parse;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-//@RunWith(SpringRunner.class)
-//@SpringBootTest(classes = PalTrackerApplication.class, webEnvironment = RANDOM_PORT)
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = PalTrackerApplication.class, webEnvironment = RANDOM_PORT)
 public class HealthApiTest {
 
-//    @LocalServerPort
+    @LocalServerPort
     private String port;
     private TestRestTemplate restTemplate;
 
-//    @Before
+    @Before
     public void setUp() throws Exception {
         RestTemplateBuilder builder = new RestTemplateBuilder()
             .rootUri("http://localhost:" + port)
@@ -34,7 +34,7 @@ public class HealthApiTest {
         restTemplate = new TestRestTemplate(builder);
     }
 
-//    @Test
+    @Test
     public void healthTest() {
         ResponseEntity<String> response = this.restTemplate.getForEntity("/actuator/health", String.class);
 
